@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace caLatihanSortTerbesarKedua
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Buatlah sebuah function yang dapat menerima array deret bilangan dan mengembalikan
+            // bilangan kedua terbesar dari array tersebut.
+
+            double [] arr = Array.ConvertAll(Console.ReadLine().Split(' '), input => Convert.ToDouble(input));
+            double tmpg;
+            
+            double maxkedua;
+
+            // bubble sort untuk mendapatkan urutan angka terkecil sampai terbesar
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j= 0; j < arr.Length; j++)
+                if ( arr[i] < arr[j]) // jika urutan ascending menggunakan i < j, jika descending i > j
+                    {
+                        tmpg = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = tmpg;
+                    }
+            }
+
+            //membuat indeks pada angka yang sudah diurutkan
+            for ( int k = 0; k < arr.Length; k++)
+            {
+               if (k == arr.Length - 2)
+                {
+                    maxkedua = arr[k]; // kondisi untuk mendapatkan nilai terbesar kedua
+                    Console.Write(maxkedua);
+                }     
+            }
+            
+            
+            Console.ReadKey();
+        } 
+    }
+}
